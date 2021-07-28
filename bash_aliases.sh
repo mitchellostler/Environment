@@ -1,8 +1,8 @@
+
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias ls='ls -aG '
-alias he='echo hello'
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
@@ -21,6 +21,20 @@ alias co='git checkout'
 alias st='git status'
 alias cgrep='grep -r --include *\.c --include *\.h'
 alias ctset='ctags -R .'
+
+function vim_find {
+    FPATH=$(find . -name $1)
+    if [ -z "$FPATH" ]
+    then
+        vim $1
+    else
+        vim $FPATH
+    fi
+ }
+
+alias vim=vim_find
+
+alias findwhite='egrep -r " +$" .'
 
 #   extract:  Extract most know archives with one command
 #   ---------------------------------------------------------
