@@ -17,13 +17,17 @@ alias c='clear'
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias dc="cd ~/Documents"
+
 alias co='git checkout'
 alias st='git status'
 alias cgrep='grep -r --include *\.c --include *\.h'
 alias ctset='ctags -R .'
 
 function vim_find {
-    FPATH=$(find . -name $1)
+    FPATH=$(find . -name $1 -quit)
     if [ -z "$FPATH" ]
     then
         vim $1

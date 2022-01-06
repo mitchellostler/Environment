@@ -1,4 +1,16 @@
 #!/bin/bash
 
-source fancy-bash-prompt.sh
-
+#source ~/Environment/bash-prompt-colorize.sh
+source ~/Environment/bash_prompt.sh
+source ~/Environment/bash_aliases.sh
+#echo "     _________
+#    / ======= \\
+#   / __________\\
+#  | ___________ |
+#  | | -       | |
+#  | |         | |
+#  | |_________| |________________________
+#  \=____________/   Mitchell Ostler      )
+#  / \"\"\"\"\"\"\"\"\"\"\" \\                       /
+# / ::::::::::::: \\                  =D-'
+#(_________________)"
