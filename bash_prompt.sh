@@ -39,9 +39,9 @@ __powerline() {
 	br1="("
 	br2=")"
         if [ -n "$(git status --porcelain)" ]; then
-	    printf "%s" "${Blue}$br1$branch$br2$marks"
-    else
 	    printf "%s" "${Purple}$br1$branch$br2$marks"
+    else
+	    printf "%s" "${Blue}$br1$branch$br2$marks"
         fi
     }
 # 
