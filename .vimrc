@@ -22,7 +22,7 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'ycm-core/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
 " Initialize plugin system
 call plug#end()
 

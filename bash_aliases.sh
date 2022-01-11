@@ -23,11 +23,14 @@ alias dc="cd ~/Documents"
 
 alias co='git checkout'
 alias st='git status'
+alias df='git diff'
+alias add='git add'
+
 alias cgrep='grep -r --include *\.c --include *\.h'
 alias ctset='ctags -R .'
 
 function vim_find {
-    FPATH=$(find . -name $1 -quit)
+    FPATH=$(find . -name $1 -quit 2>/dev/null )
     if [ -z "$FPATH" ]
     then
         vim $1
