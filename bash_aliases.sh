@@ -12,7 +12,8 @@ alias .5='cd ../../../../../'               # Go back 5 directory levels
 alias .6='cd ../../../../../../'
 alias f='open -a Finder ./'
 alias ~="cd ~"
-alias box='cd box && vagrant up && vagrant ssh'
+alias box='cd ~/box && vagrant up && vagrant ssh'
+alias sbox='cd ~/box && vagrant ssh'
 alias c='clear'
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
