@@ -30,17 +30,16 @@ alias add='git add'
 alias cgrep='grep -r --include *\.c --include *\.h'
 alias ctset='ctags -R .'
 
-function vim_find {
-    FPATH=$(find . -name $1 -quit 2>/dev/null )
-    if [ -z "$FPATH" ]
+vimf() {
+    if [ -f "$1" ]
     then
         vim $1
     else
-        vim $FPATH
+	vim $(find . -name "$1" -print -quit 2>/dev/null)
     fi
  }
 
-alias vim=vim_find
+alias vim=vimf
 
 alias findwhite='egrep -r " +$" .'
 

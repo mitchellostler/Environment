@@ -22,12 +22,17 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'kien/ctrlp.vim'
 " Initialize plugin system
 call plug#end()
 
 :set backspace=indent,eol,start
 set clipboard=unnamed
 
+" Collapse methods/classes
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
 
 " NerdTree Configs
 let NERDTreeQuitOnOpen=1
