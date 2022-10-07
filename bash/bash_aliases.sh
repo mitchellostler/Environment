@@ -2,7 +2,7 @@
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
-alias ls='ls -aG '
+alias ls='ls -laC --color'
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
@@ -24,11 +24,11 @@ alias dc="cd ~/Documents"
 
 alias co='git checkout'
 alias st='git status'
-alias df='git diff'
+alias gdf='git diff'
 alias add='git add'
 
 alias cgrep='grep -r --include *\.c --include *\.h'
-alias ctset='ctags -R .'
+alias ctset='universal-ctags -R --c++-kinds=+p --fields=+iaS --extras=+q --language-force=C++ .'
 
 vimf() {
     if [ -f "$1" ]

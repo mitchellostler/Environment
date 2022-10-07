@@ -1,9 +1,15 @@
 #!/bin/bash
 
-#source ~/Environment/bash-prompt-colorize.sh
-source ~/Environment/bash_prompt.sh
-source ~/Environment/bash_aliases.sh
-tmux
+source ~/bash_prompt.sh
+source ~/bash_aliases.sh
+source ~/.bash_local
+
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#   exec tmux
+# fi
+
+alias pip='python -m pip'
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 #echo "     _________
 #    / ======= \\
 #   / __________\\

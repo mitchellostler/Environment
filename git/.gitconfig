@@ -1,0 +1,6 @@
+[user]
+  email = mitchell.ostler@skydio.com
+  name = Mitch Ostler
+
+[core]
+  editor=vim

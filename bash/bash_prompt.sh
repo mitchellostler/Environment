@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/Environment/colors.sh
+source ~/colors.sh
 
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
@@ -10,6 +10,19 @@ readonly GIT_BRANCH_CHANGED_SYMBOL='+'
 readonly GIT_NEED_PULL_SYMBOL='⇣'
 readonly GIT_NEED_PUSH_SYMBOL='⇡'
 PS_SYMBOL='$'
+
+
+function virtualenv_info(){
+    # Get Virtual Env
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        # Strip out the path and just leave the env name
+        venv="${VIRTUAL_ENV##*/}"
+    else
+        # In case you don't have one activated
+        venv=''
+    fi
+    [[ -n "$venv" ]] && echo "(venv:$venv) "
+}
 
 __powerline() {
  
@@ -53,8 +66,7 @@ __powerline() {
         else
             local FG_EXIT="$Red"
         fi
-
-        PS1="\[\e[0;93m\]\u\[\e[m\]"    # username
+    PS1="\[\e[0;93m\]\u\[\e[m\] \$(virtualenv_info)"    # username
 	PS1+=" "
         PS1+="$(__git_info)"
 	PS1+=" "
