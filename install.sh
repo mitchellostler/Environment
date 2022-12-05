@@ -11,29 +11,28 @@ fi
 function linux_install {
     echo "Installing apps"
     sudo apt install\
+        stow\
         python3\
         python3-setuptools\
         vim\
         tmux\
         minicom\
-        picocom\
-        stow
+        picocom
 }
 
 function setup_dirs {
   echo
-  echo "Creating bin directory"
-  mkdir -p $HOME/bin
 
   echo
   echo "Linking dot files and bin directory"
+  mkdir $HOME/old_cfg
+  mv $HOME/.bashrc $HOME/old_cfg
 
   cd $HOME/Environment
   stow -v vim\
           bash\
           tmux\
           git\
-          bin
 
   if ! (ls -a $HOME | grep -qi .bash_local); then
     touch $HOME/.bash_local
