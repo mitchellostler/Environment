@@ -1,7 +1,6 @@
 #!/bin/bash
 # Requires that Environment folder is located in home directory
 if [[ $OSTYPE == 'darwin'* ]]; then
-  echo "Mac Specific Setup..."
   LINUX_SETUP=0
 else 
   echo "Linux Specific Setup..."
@@ -20,9 +19,18 @@ function linux_install {
         picocom
 }
 
-function setup_dirs {
-  echo
+function mac_install {
+    echo "Installing apps"
+    brew install\
+        python3\
+        vim\
+        tmux\
+        minicom\
+        picocom\
+        stow
+}
 
+function setup_dirs {
   echo
   echo "Linking dot files and bin directory"
   mkdir $HOME/old_cfg
@@ -45,8 +53,11 @@ function setup_dirs {
 
 # Mac or linux specific behaviour
 if [[ $OSTYPE == 'darwin'* ]]; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  brew install tmux
+  #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "Mac Specific Setup..."
+  #brew install tmux
+  mac_install 
+  setup_dirs
 else
     linux_install 
     setup_dirs

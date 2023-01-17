@@ -38,18 +38,19 @@ if has("autocmd")
 endif
 
 :set backspace=indent,eol,start
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 " Use proper tabs
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2 
 set expandtab
 
 " Collapse methods/classes
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
+" nnoremap pp 0p
 
 nnoremap <silent> <C-f> :FZF<CR>
 

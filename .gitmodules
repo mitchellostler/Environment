@@ -2,3 +2,6 @@
 	path = tmux/.tmux-themepack
 	url = https://github.com/jimeh/tmux-themepack
 	branch = master
+[submodule "vim/.vim/plugged/fzf.vim"]
+	path = vim/.vim/plugged/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
