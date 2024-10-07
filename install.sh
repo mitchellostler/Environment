@@ -11,12 +11,10 @@ function linux_install {
     echo "Installing apps"
     sudo apt install\
         stow\
-        python3\
-        python3-setuptools\
         vim\
         tmux\
         minicom\
-        picocom
+        fzf
 }
 
 function mac_install {
@@ -27,7 +25,8 @@ function mac_install {
         tmux\
         minicom\
         picocom\
-        stow
+        stow\
+        fzf
 }
 
 function setup_dirs {

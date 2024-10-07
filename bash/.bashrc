@@ -10,7 +10,6 @@ source ~/.bash_local
 
 alias pip='python -m pip'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-gssh
 #echo "     _________
 #    / ======= \\
 #   / __________\\

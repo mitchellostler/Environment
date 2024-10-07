@@ -26,22 +26,35 @@ alias co='git checkout'
 alias st='git status'
 alias gdf='git diff'
 alias add='git add'
+alias cg='cd $(git rev-parse --show-toplevel)'
 
 alias cgrep='grep -r --include *\.c --include *\.h'
 alias ctset='universal-ctags -R --c++-kinds=+p --fields=+iaS --extras=+q --language-force=C++ .'
 
-vimf() {
-    if [ -f "$1" ]
-    then
-        vim $1
-    else
-	vim $(find . -name "$1" -print -quit 2>/dev/null)
-    fi
- }
+export DISPLAY=:0
 
-alias vim=vimf
+# Fuzzy search for Bash history with fzf
+__fzf_history__() {
+  command=$(history | tac | fzf | awk '{$1=""; print substr($0,2)}')
+  echo $command
+  history -s "$command"
+  $command
+}
+bind -x '"\C-r": __fzf_history__'
+
+# CD using Fzf
+cf() {
+  local dir
+  dir=$(find . -type d | fzf +m) # Use fzf to select a directory
+  if [[ -n "$dir" ]]; then
+    builtin cd "$dir" # Change to the selected directory
+  fi
+}
+
+alias vf='vim $(fzf)'
 
 alias findwhite='egrep -r " +$" .'
+
 
 #   extract:  Extract most know archives with one command
 #   ---------------------------------------------------------
