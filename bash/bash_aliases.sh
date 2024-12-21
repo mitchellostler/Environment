@@ -1,4 +1,4 @@
-
+#!/bin/bash
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
@@ -48,10 +48,20 @@ cf() {
   dir=$(find . -type d | fzf +m) # Use fzf to select a directory
   if [[ -n "$dir" ]]; then
     builtin cd "$dir" # Change to the selected directory
+    history -s "cd $file"
   fi
 }
 
-alias vf='vim $(fzf)'
+
+
+vf() {
+  local file
+  file=$(fzf)
+  if [ -n "$file" ]; then
+    vim "$file"
+    history -s "vim $file"
+  fi
+}
 
 alias findwhite='egrep -r " +$" .'
 
